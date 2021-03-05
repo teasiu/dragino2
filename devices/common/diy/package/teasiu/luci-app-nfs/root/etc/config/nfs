@@ -1,0 +1,7 @@
+
+config share
+	option clients '*'
+	option options 'rw,sync,root_squash,all_squash,insecure,no_subtree_check'
+	option enabled '1'
+	option path '/mnt/sda1/nfs'
+

@@ -1,0 +1,16 @@
+# filename： /etc/dnsmasq.conf
+# 在最后添加以下几行，这里会根据client类型自动选择镜像
+ 
+enable-tftp
+tftp-root=/mnt/PXEboot
+dhcp-boot=bios/pxelinux.0
+dhcp-match=set:efi-x86_64,option:client-arch,7
+dhcp-boot=tag:efi-x86_64,uefi/syslinux.efi
+
+然后重启dnsmasq服务：
+
+1
+2
+	
+# 重启dnsmasq
+/etc/init.d/dnsmasq restart
